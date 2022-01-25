@@ -7,7 +7,13 @@ namespace Planner
   {
     static void Main(string[] args)
     {
+
+      //* Make a new city 
+      City NewCity = new City("New City");
+      NewCity.SetMayorName("Joe Quimby");
+      NewCity.SetYearEstablished(1968);
       
+      //* Make some buildings 
       Building FiveOneTwoEigth = new Building("512 8th Avenue");
       FiveOneTwoEigth.Width = 100;
       FiveOneTwoEigth.Depth = 100;
@@ -43,16 +49,13 @@ namespace Planner
       FourTwoZero.Construct();
       FourTwoZero.Purchase("Snoop Dogg");
 
-      List<Building> buildings = new List<Building>()
-      {
-        FiveOneTwoEigth,
-        OneTwoThree,
-        FourFiveSix,
-        SevenEightNine,
-        FourTwoZero
-      };
+      NewCity.AddBuilding(FiveOneTwoEigth);
+      NewCity.AddBuilding(OneTwoThree);
+      NewCity.AddBuilding(FourFiveSix);
+      NewCity.AddBuilding(SevenEightNine);
+      NewCity.AddBuilding(FourTwoZero);
 
-      foreach (Building building in buildings)
+      foreach (Building building in NewCity.Buildings)
       {
         Console.WriteLine($@"
           {building.GetAddress()}
